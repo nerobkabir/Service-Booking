@@ -1,36 +1,70 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# ⚡ ServeEase — Service Booking Website
 
-## Getting Started
+![Next.js](https://img.shields.io/badge/Next.js-16-black?style=flat-square&logo=next.js)
+![MongoDB](https://img.shields.io/badge/MongoDB-Atlas-green?style=flat-square&logo=mongodb)
+![Stripe](https://img.shields.io/badge/Stripe-Payment-blue?style=flat-square&logo=stripe)
+![Vercel](https://img.shields.io/badge/Deployed-Vercel-black?style=flat-square&logo=vercel)
 
-First, run the development server:
+A full-stack service booking platform with Stripe payment, email confirmation, and admin dashboard.
+
+🔗 **Live Demo:** [https://serveease.vercel.app](https://serveease.vercel.app)
+
+---
+
+## 🧰 Tech Stack
+
+Next.js 16 · Tailwind CSS v4 · MongoDB Atlas · Stripe · Nodemailer · Vercel
+
+---
+
+## ✨ Features
+
+- 6 bookable services with pricing
+- Stripe secure checkout
+- Email confirmation after payment (Nodemailer)
+- Admin dashboard — view, manage & delete bookings
+- Fully responsive dark UI
+
+---
+
+## 🚀 Run Locally
 
 ```bash
+git clone https://github.com/yourusername/booking-website.git
+cd booking-website
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Create `.env.local`:
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+```env
+MONGODB_URI=your_mongodb_uri
+STRIPE_SECRET_KEY=sk_test_xxx
+NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_test_xxx
+NEXT_PUBLIC_APP_URL=http://localhost:3000
+EMAIL_USER=yourgmail@gmail.com
+EMAIL_PASS=your_app_password
+NEXT_PUBLIC_ADMIN_SECRET=admin123
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 💳 Test Payment
 
-To learn more about Next.js, take a look at the following resources:
+```
+Card: 4242 4242 4242 4242
+Expiry: 12/34  |  CVV: 123
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 👑 Admin Panel
 
-## Deploy on Vercel
+Go to `/admin` → enter password from `NEXT_PUBLIC_ADMIN_SECRET`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 👨‍💻 Author
+
+**Your Name** · [GitHub](https://github.com/yourusername) · youremail@gmail.com
