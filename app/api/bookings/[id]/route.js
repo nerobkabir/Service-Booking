@@ -1,5 +1,3 @@
-// app/api/bookings/[id]/route.js
-
 import { NextResponse } from 'next/server'
 import connectDB from '@/lib/mongodb'
 import Booking from '@/models/Booking'
@@ -8,7 +6,7 @@ export async function DELETE(request, context) {
   try {
     await connectDB()
 
-    const { id } = await context.params  // ✅ Next.js 16 তে params await করতে হয়
+    const { id } = await context.params  
 
     if (!id) {
       return NextResponse.json({ error: 'ID missing' }, { status: 400 })
