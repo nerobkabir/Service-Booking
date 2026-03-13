@@ -33,8 +33,8 @@ export default function HomePage() {
         <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           {/* Badge */}
           <div className="animate-fade-up inline-flex items-center gap-2 bg-gold-500/10 border border-gold-500/25 text-gold-400 text-xs font-semibold px-4 py-2 rounded-full mb-8 tracking-wide">
-            <span className="w-2 h-2 bg-gold-500 rounded-full animate-pulse" />
-            PROFESSIONAL TECH SERVICES
+            
+            
           </div>
 
           {/* Headline */}
