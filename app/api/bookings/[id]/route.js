@@ -1,16 +1,15 @@
+// app/api/bookings/[id]/route.js
+// DELETE: নির্দিষ্ট booking delete করা (admin এর জন্য)
+
 import { NextResponse } from 'next/server'
 import connectDB from '@/lib/mongodb'
 import Booking from '@/models/Booking'
 
-export async function DELETE(request, context) {
+export async function DELETE(request, { params }) {
   try {
     await connectDB()
 
-    const { id } = await context.params  
-
-    if (!id) {
-      return NextResponse.json({ error: 'ID missing' }, { status: 400 })
-    }
+    const { id } = params
 
     const deleted = await Booking.findByIdAndDelete(id)
 
@@ -18,9 +17,9 @@ export async function DELETE(request, context) {
       return NextResponse.json({ error: 'Booking not found' }, { status: 404 })
     }
 
-    return NextResponse.json({ message: 'Deleted successfully' })
+    return NextResponse.json({ message: 'Booking deleted successfully' })
   } catch (error) {
-    console.error('DELETE error:', error)
-    return NextResponse.json({ error: 'Failed to delete' }, { status: 500 })
+    console.error('DELETE booking error:', error)
+    return NextResponse.json({ error: 'Failed to delete booking' }, { status: 500 })
   }
 }

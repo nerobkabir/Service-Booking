@@ -1,6 +1,6 @@
 // app/api/checkout/route.js
 import { NextResponse } from 'next/server'
-import { getStripe } from '@/lib/stripe'
+import stripe from '@/lib/stripe'
 import connectDB from '@/lib/mongodb'
 import Booking from '@/models/Booking'
 import { SERVICES } from '@/lib/services'
@@ -29,9 +29,6 @@ export async function POST(request) {
       paymentStatus: 'pending',
     })
 
-    // ✅ getStripe() call করা হচ্ছে - runtime এ initialize হবে
-    const stripe = getStripe()
-
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
       mode: 'payment',
@@ -51,7 +48,11 @@ export async function POST(request) {
       ],
       metadata: {
         bookingId: booking._id.toString(),
+        customerName: name,
+        customerEmail: email,
+        serviceName: service.name,
       },
+      // ✅ success_url এ bookingId পাঠানো হচ্ছে — webhook ছাড়াই update হবে
       success_url: `${appUrl}/success?bookingId=${booking._id}`,
       cancel_url: `${appUrl}/booking?cancelled=true`,
     })
